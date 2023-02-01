@@ -7,8 +7,6 @@
    */
 
 #include "../../Python/aot_ceval_includes.h"
-#include "../../Include/pyport.h"
-#include "../../Include/exports.h"
 
 #include <ctype.h>
 
@@ -1632,6 +1630,9 @@ static uint64_t getDictVersionFromDictPtr(PyObject** dictptr) {
 #define TYPE_VERSION_CHECK(tp, type_ver)  ((tp)->tp_version_tag == (type_ver))
 #endif
 
+#include "../../Include/pyport.h"
+#include "../../Include/exports.h"
+
 #ifndef NO_DKVERSION
 static uint64_t getSplitDictKeysVersionFromDictPtr(PyObject** dictptr) {
     if (dictptr == NULL)
@@ -1664,7 +1665,8 @@ int setItemInitSplitDictCache(PyObject** dictptr, PyObject* obj, PyObject* v, Py
     return err;
 }
 
-Py_ALWAYS_INLINE Py_LOCAL_SYMBOL int storeAttrCache(PyObject* owner, PyObject* name, PyObject* v, _PyOpcache *co_opcache, int* err) {
+int Py_ALWAYS_INLINE Py_LOCAL_SYMBOL
+storeAttrCache(PyObject* owner, PyObject* name, PyObject* v, _PyOpcache *co_opcache, int* err) {
     _PyOpcache_StoreAttr *sa = &co_opcache->u.sa;
     PyTypeObject *tp = Py_TYPE(owner);
 
@@ -1743,7 +1745,8 @@ hit:
     return 0;
 }
 
-Py_ALWAYS_INLINE Py_LOCAL_SYMBOL int setupStoreAttrCache(PyObject* obj, PyObject* name, _PyOpcache *co_opcache) {
+int Py_ALWAYS_INLINE Py_LOCAL_SYMBOL
+setupStoreAttrCache(PyObject* obj, PyObject* name, _PyOpcache *co_opcache) {
     _PyOpcache_StoreAttr *sa = &co_opcache->u.sa;
     PyTypeObject *tp = Py_TYPE(obj);
 
