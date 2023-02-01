@@ -8,6 +8,7 @@
 
 #include "../../Python/aot_ceval_includes.h"
 #include "../../Include/pyport.h"
+#include "../../Include/exports.h"
 
 #include <ctype.h>
 
