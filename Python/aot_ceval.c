@@ -203,7 +203,7 @@ long loadglobal_hits = 0, loadglobal_misses = 0, loadglobal_uncached = 0, loadgl
 #if PY_MAJOR_VERSION == 3 && PY_MINOR_VERSION <= 8
 // In pyston-full we rely on LTO to inline cmp_outcome into the interpreter loop.
 // In pyston-lite we have to make the implementation available
-Py_LOCAL_SYMBOL inline PyObject* cmp_outcome(PyThreadState *tstate, int, PyObject *v, PyObject *w);
+inline Py_LOCAL_SYMBOL PyObject* cmp_outcome(PyThreadState *tstate, int, PyObject *v, PyObject *w);
 PyObject* cmp_outcomePyCmp_LT(PyObject *v, PyObject *w) {
   return cmp_outcome(NULL, PyCmp_LT, v, w);
 }
