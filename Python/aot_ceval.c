@@ -7,6 +7,7 @@
    */
 
 #include "../../Python/aot_ceval_includes.h"
+#include "../../Python/exports.h"
 
 #include <ctype.h>
 
