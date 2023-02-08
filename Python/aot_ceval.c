@@ -1745,8 +1745,7 @@ hit:
     return 0;
 }
 
-int Py_ALWAYS_INLINE Py_LOCAL_SYMBOL
-setupStoreAttrCache(PyObject* obj, PyObject* name, _PyOpcache *co_opcache) {
+Py_ALWAYS_INLINE Py_LOCAL_SYMBOL int setupStoreAttrCache(PyObject* obj, PyObject* name, _PyOpcache *co_opcache) {
     _PyOpcache_StoreAttr *sa = &co_opcache->u.sa;
     PyTypeObject *tp = Py_TYPE(obj);
 
