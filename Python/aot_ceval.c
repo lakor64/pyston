@@ -1666,8 +1666,7 @@ int setItemInitSplitDictCache(PyObject** dictptr, PyObject* obj, PyObject* v, Py
     return err;
 }
 
-int Py_LOCAL_SYMBOL Py_ALWAYS_INLINE
-storeAttrCache(PyObject* owner, PyObject* name, PyObject* v, _PyOpcache *co_opcache, int* err) {
+Py_LOCAL_SYMBOL Py_ALWAYS_INLINE int storeAttrCache(PyObject* owner, PyObject* name, PyObject* v, _PyOpcache *co_opcache, int* err) {
     _PyOpcache_StoreAttr *sa = &co_opcache->u.sa;
     PyTypeObject *tp = Py_TYPE(owner);
 
