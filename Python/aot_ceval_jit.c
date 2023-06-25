@@ -59,7 +59,9 @@
 
 #ifndef _WIN32
 #include <sys/types.h>
+#include <sys/mman.h>
 #include <time.h>
+#include <unistd.h>
 #endif
 
 #include "../../Include/pyport.h"
