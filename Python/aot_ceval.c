@@ -6,6 +6,11 @@
    XXX document it!
    */
 
+#ifndef _WIN32
+#include <sys/types.h>
+#endif
+
+#include "../../Include/pyport.h"
 #include "../../Python/aot_ceval_includes.h"
 
 #include <ctype.h>

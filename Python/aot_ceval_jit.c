@@ -57,6 +57,12 @@
 
 #define PY_LOCAL_AGGRESSIVE
 
+#ifndef _WIN32
+#include <sys/types.h>
+#include <time.h>
+#endif
+
+#include "../../Include/pyport.h"
 #include "../../Python/aot_ceval_includes.h"
 
 #ifdef PYSTON_LITE
